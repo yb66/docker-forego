@@ -4,12 +4,12 @@ I don't necessarily want Go and git etc in my images, and remembering to put in 
 
 ## To build
 
-docker build -t "YOURNAME/forego" .
+		docker build -t "YOURNAME/forego" .
 
 I prefer this though:
 
-docker build --squash -t 'YOURNAME/forego' .
-docker images --no-trunc -aqf "dangling=true" | xargs docker rmi
+		docker build --squash -t 'YOURNAME/forego' .
+		docker images --no-trunc -aqf "dangling=true" | xargs docker rmi
 
 It leaves less stuff lying around afterwards. Be warned that the second statement with remove all intermediate builds, not just this build's, but I don't like keeping them around anyway, YMMV.
 
